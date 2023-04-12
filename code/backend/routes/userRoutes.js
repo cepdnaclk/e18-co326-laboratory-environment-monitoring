@@ -2,6 +2,7 @@ const express = require("express");
 const { generateAccessToken, authenticateToken } = require("../auth/jwt");
 const Device = require("../models/Device");
 const Station = require("../models/Station");
+const Station = require("../models/User");
 
 // router is an instance of the express router.
 // We use it to define our routes.
