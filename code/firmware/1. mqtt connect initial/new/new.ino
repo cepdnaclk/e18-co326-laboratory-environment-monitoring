@@ -123,9 +123,9 @@ void publishMessage() {
     StaticJsonDocument<200> doc;
     // doc["time"] = millis();
     doc["time"] = getTime();
-    doc["temperature"] = bmp.readTemperature();
-    doc["pressure"] = bmp.readPressure();
-    doc["altitude"] = bmp.readAltitude(1013.25);
+    doc["temperature"] = getTemperature();
+    doc["pressure"] = getPressure();
+    doc["altitude"] = getAltitude();
     doc["fan_status"] = fan_status;
     // doc["time"]
     char jsonBuffer[512];
@@ -225,4 +225,16 @@ char* getTime() {
     strftime(timeString, 20, "%Y-%m-%d %H:%M:%S", timeinfo);
 
     return timeString;
+}
+
+float getTemperature() {
+    return bmp.readTemperature();
+}
+
+float getPressure() {
+    return bmp.readPressure();
+}
+
+float getAltitude() {
+    return bmp.readAltitude(1013.25);
 }
